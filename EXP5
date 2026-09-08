@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class Calculate
+{
+public:
+    int add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+    float add(float x, float y, float z)
+    {
+        return x + y + z;
+    }
+};
+int main()
+{
+    Calculate sum;
+    int a, b, c;
+    float x, y, z;
+    cout << "Enter three integers: ";
+    cin >> a >> b >> c;
+    cout << "Enter threefloat values: ";
+    cin >> x >> y>>z;
+    cout << "Addition of three integers: " << sum.add(a, b, c) << endl;
+    cout << "Addition of three float values: " << sum.add(x, y, z) << endl;
+    return 0;
+}
