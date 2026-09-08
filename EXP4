@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Complex
+{
+    int real,img;
+
+public:
+    void accept(int r,int i)
+    {
+        real=r;
+        img=i;
+    }
+    void display()
+    {
+    if(img >= 0)
+        cout << real << " + i(" << img << ")" << endl;
+    else
+        cout << real << " - i(" << -img << ")" << endl;
+    }
+    void add(Complex c1,Complex c2)
+    {
+        real=c1.real+c2.real;
+        img=c1.img+c2.img;
+    }
+    void sub(Complex c1,Complex c2)
+    {
+        real=c1.real-c2.real;
+        img=c1.img-c2.img;
+    }
+    void multiply(Complex c1,Complex c2)
+    {
+        real=(c1.real*c2.real)-(c1.img*c2.img);
+        img=(c1.real*c2.img)+(c1.img*c2.real);
+    }
+    void divide(Complex c1,Complex c2){
+        Complex conjugate;
+        conjugate.accept(c2.real, -c2.img);
+        Complex numerator;
+        numerator.multiply(c1, conjugate);
+       
+        int denominator;
+        denominator = (c2.real * c2.real) + (c2.img * c2.img);
+        real = numerator.real / denominator;
+        img = numerator.img / denominator;
+       
+    }
+};
+
+int main()
+{
+    Complex c1,c2,c3,c4,c5,c6;
+    c1.accept(1,2);
+    c2.accept(2,3);
+    c1.display();
+    c2.display();
+    c3.add(c1,c2);
+    c3.display();
+   
+    c3.sub(c1,c2);
+    c3.display();
+   
+    c4.multiply(c1,c2);
+    c4.display();
+   
+    c5.divide(c1,c2);
+    c5.display();
+   
+    c6.accept(1,-2);
+    c6.display();
+   
+
+    return 0;
+}
